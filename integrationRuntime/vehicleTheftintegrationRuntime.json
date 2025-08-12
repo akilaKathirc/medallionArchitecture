@@ -1,0 +1,12 @@
+{
+	"name": "vehicleTheftintegrationRuntime",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/68151ce9-0181-4d75-96b9-6b9609554994/resourcegroups/azureadfpiplines/providers/Microsoft.DataFactory/factories/akilaazureadf/integrationruntimes/sqlir",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
