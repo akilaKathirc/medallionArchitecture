@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "vehicletheft"
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"VehicleTheftFileServer_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://vehicletheft1.dfs.core.windows.net/"
+		},
+		"VehicleTheftFileServer_properties_typeProperties_host": {
+			"value": "D:\\ADFDATA"
+		},
+		"VehicleTheftFileServer_properties_typeProperties_userId": {
+			"value": "cheng\\lchen"
+		},
+		"vehicleTheftintegrationRuntime_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/68151ce9-0181-4d75-96b9-6b9609554994/resourcegroups/azureadfpiplines/providers/Microsoft.DataFactory/factories/akilaazureadf/integrationruntimes/sqlir"
+		}
+	}
+}
