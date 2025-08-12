@@ -49,7 +49,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "locationsource",
+						"referenceName": "locationsource1",
 						"type": "DatasetReference"
 					}
 				],
@@ -63,7 +63,14 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "location",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"isSequential": true

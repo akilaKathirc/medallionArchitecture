@@ -1,0 +1,21 @@
+{
+	"name": "sourcefromlocalvehicletheft",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "VehicleTheftFileServer",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
