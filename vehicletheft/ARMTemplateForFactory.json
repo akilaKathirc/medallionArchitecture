@@ -89,7 +89,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "locationsource",
+								"referenceName": "locationsource1",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -110,7 +110,7 @@
 				"lastPublishTime": "2025-08-12T14:44:00Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/locationsource')]",
+				"[concat(variables('factoryId'), '/datasets/locationsource1')]",
 				"[concat(variables('factoryId'), '/datasets/locationsink')]"
 			]
 		},
@@ -154,6 +154,53 @@
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
+						"type": "FileServerLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "location_id",
+						"type": "String"
+					},
+					{
+						"name": "region",
+						"type": "String"
+					},
+					{
+						"name": "country",
+						"type": "String"
+					},
+					{
+						"name": "population",
+						"type": "String"
+					},
+					{
+						"name": "density",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/VehicleTheftFileServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/locationsource1')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "VehicleTheftFileServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
 						"type": "FileServerLocation",
 						"fileName": "locations.csv"
 					},
@@ -184,6 +231,32 @@
 						"type": "String"
 					}
 				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/VehicleTheftFileServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sourcefromlocalvehicletheft')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "VehicleTheftFileServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "FileServerLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/VehicleTheftFileServer')]"
