@@ -188,6 +188,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "bronze",
 						"fileSystem": "bronze"
 					},
 					"columnDelimiter": ",",
@@ -215,6 +216,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "bronze",
 						"fileSystem": "bronze"
 					},
 					"columnDelimiter": ",",
@@ -263,6 +265,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "bronze",
 						"fileSystem": "bronze"
 					},
 					"columnDelimiter": ",",
@@ -311,6 +314,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"folderPath": "bronze",
 						"fileSystem": "bronze"
 					},
 					"columnDelimiter": ",",
@@ -699,7 +703,14 @@
 					{
 						"name": "make details",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "location",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -759,7 +770,14 @@
 					{
 						"name": "stolen vehicles",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "make details",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
@@ -819,7 +837,14 @@
 					{
 						"name": "svdbdatadictionary",
 						"type": "Copy",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "stolen vehicles",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
